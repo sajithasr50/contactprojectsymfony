@@ -1,0 +1,59 @@
+{% extends 'loginbase.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+ <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                    </div>
+<form method="post" class="user">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+
+    <label for="inputEmail"></label>
+    <div class="form-group">
+
+    <input aria-describedby="emailHelp" placeholder="Enter Email Address..." type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control form-control-user" autocomplete="email" required autofocus>
+    </div>
+    <div class="form-group">
+
+    <label for="inputPassword"></label>
+    <input type="password" name="password" id="inputPassword" class="form-control form-control-user" placeholder="Password" autocomplete="current-password" required>
+    </div>
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+
+    {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
+
+        <div class="form-group">
+            <div class="custom-control custom-checkbox small">
+            
+                <input type="checkbox"  class="custom-control-input" id="customCheck" name="_remember_me"> 
+                 <label class="custom-control-label" for="customCheck">Remember
+                                                    Me</label>
+
+        </div>
+        </div>
+    #}
+
+    <button class="btn btn-primary btn-user btn-block" type="submit">
+        Sign in
+    </button>
+</form>
+<hr>
+                                    
+                                    <div class="text-center">
+                                        <a class="small" href="{{ path('app_register') }}">Create an Account!</a>
+                                    </div>
+{% endblock %}
+ 

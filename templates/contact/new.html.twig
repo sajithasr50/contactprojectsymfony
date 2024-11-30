@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Contact{% endblock %}
+
+{% block body %}
+    <h5>Create new Contact</h5>
+    <a class="col-md-1 btn btn-danger btn-block" href="{{ path('app_contact_index') }}" style="float:right">back to list</a>
+    <div class="col-md-5">
+    {{ include('contact/_form.html.twig') }}
+    </div>
+    
+{% endblock %}

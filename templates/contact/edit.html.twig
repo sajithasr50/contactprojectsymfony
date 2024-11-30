@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Contact{% endblock %}
+
+{% block body %}
+    <h5>Edit Contact</h5>
+    <a class="col-md-1 btn btn-danger btn-block" href="{{ path('app_contact_index') }}" style="float:right">back to list</a>
+    <br/>
+        <div class="col-md-5">
+
+    {{ include('contact/_form.html.twig', {'button_label': 'Update'}) }}
+    </div>
+{% endblock %}

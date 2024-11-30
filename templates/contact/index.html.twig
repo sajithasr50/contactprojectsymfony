@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact index{% endblock %}
+
+{% block body %}
+      <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Contact List</h6>
+                            <a href="{{ path('app_contact_new') }}" class="col-md-2 btn btn-danger btn-block" style="float:right"> <i class="fas fa-plus-circle text-white"></i> Add new</a>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Mobileno</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.id }}</td>
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.mobileno }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_contact_show', {'id': contact.id}) }}"><i class="fas fa-eye text-white"></i> show</a>
+                    <a class="btn btn-warning" href="{{ path('app_contact_edit', {'id': contact.id}) }}"><i class="fas fa-pen text-white"></i> edit</a>
+                        {{ include('contact/_delete_form.html.twig') }}
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+
+    
+{% endblock %}

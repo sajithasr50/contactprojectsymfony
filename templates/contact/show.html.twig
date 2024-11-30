@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    <h5>Contact Details</h5>
+                                <a href="{{ path('app_contact_new') }}" class="col-md-2 btn btn-danger btn-block" style="float:right"> <i class="fas fa-plus-circle text-white"></i> Add new</a>
+<br/><br/>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ contact.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ contact.name }}</td>
+            </tr>
+            <tr>
+                <th>Mobileno</th>
+                <td>{{ contact.mobileno }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+{% endblock %}
